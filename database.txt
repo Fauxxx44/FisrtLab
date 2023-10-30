@@ -1,0 +1,5 @@
+1 Fedorov +8578474 585868 Gamedisigner
+3 Titov +55883 5484876 Artist
+4 Orlova +68484 585874 Tester
+5 Kondrukov +584848 574883 CEO
+6 Mask +583883 583930965 Intern
