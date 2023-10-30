@@ -186,6 +186,9 @@ int main()
     if (inp == 4) {
         DeletRec(EmployeesVector);
     }
+    if (inp == 3) {
+        cout << "Sorry this is not available now.";
+        reterun 0;
     if (inp > 4)
     {
         cout << "Are you stupid? Only 4 options are available";
