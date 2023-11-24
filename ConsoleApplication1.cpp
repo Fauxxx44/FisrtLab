@@ -1,18 +1,14 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
+
 // ВАЖНО - в файле database.txt последняя строка должна быть пустой - тогда код работает правильно
 /*В програмее реализовано только
 1) Вывод всех записей - работает отлично
 2) Добавление новой записи - работает нормально, но id все время 61 - пытался реализовать цикл с проверкой id, но не получилось
 3) Удаление записи - работает отлично
 4) Поиск по критериям - не реализован*/
-
-
-
-
-
 
 
 
@@ -24,6 +20,54 @@ class Employees // создаем класс имплоис где объявл�
 public:
     string lastname, job, id, salary, number;
 };
+
+/*void SearchBy(vector<Employees>EmployeesVector)
+{
+    cout << "Choose a criterion to search by with\n";
+    cout << "1) ID\n" << "2) Surname\n" << "3) Phone number\n" << "4) Salary\n" << "5) Job titile";
+    cout << "TIP: Chose a number from 1-5 for your criterion\n";
+    int inp;
+    int criterion;
+    cin >> inp;
+    cout << "TIP: Our database is case sensitive, Fedorov and fedorov - two different things, be careful\n";
+    if (inp == 1) {
+        cout << "OK, your criterion is ID\n";
+        
+        cout << "Enter your employee ID\n";
+        cin >> criterion;
+        
+    }
+    if (inp == 2) {
+        cout << "OK, your criterion is SURNAME\n";
+        cout << "Enter your employee Surname\n";
+        cin >> criterion;
+    }
+    if (inp == 3) {
+        cout << "OK, your criterion is PHONE\n";
+        cout << "Enter your employee Phone number in format +7***\n";
+        cin >> criterion;
+
+    }
+    if (inp == 4) {
+        cout << "OK, your criterion is SALARY\n";
+        cout << "Enter your employee salary in format ***$\n";
+        cin >> criterion;
+    }
+    if (inp == 5) {
+        cout << "OK, your criterion is JOBNAME\n";
+        cout << "Enter your employee job name\n";
+        cin >> criterion;
+    }
+    else {
+        cout << "WRONG TYPE OF CRITERION. ABORT\n";
+    }
+}*/ // наброски функции поиска
+
+
+
+
+
+
 
 void ViewAllRec(vector<Employees>EmployeesVector) // функция вывода всех записей
 {
@@ -100,11 +144,13 @@ void DeletRec(vector<Employees>EmployeesVector) //функция удалени�
 }
 void AddNewRec(vector<Employees>EmployeesVector) // функция добавления новой записи
 {
-    int q;
-    srand(7);
-    q = rand();
+    int count;
+    count = 6;
+    string stridishnik;
 
-    string d = to_string(q);
+    
+
+    
     
     
   
@@ -120,7 +166,10 @@ void AddNewRec(vector<Employees>EmployeesVector) // функция добавл�
     cin >> emp.salary;
     cout << "Enter the employes jobname\n ";
     cin >> emp.job;
-    emp.id = d;
+    stridishnik = to_string(count+1);
+    emp.id = stridishnik;
+    
+    count++;
     EmployeesVector.push_back(emp); //добавляем введенные данные в наш вектор
     ofstream out("D:\database.txt", std::ios::app);
  
@@ -181,14 +230,16 @@ int main()
     }
     if (inp == 1) {
         AddNewRec(EmployeesVector);
-
     }
+    if (inp == 3) {
+            cout << "Sorry not working yet";
+           // SearchBy(EmployeesVector);
+    }
+
+    
     if (inp == 4) {
         DeletRec(EmployeesVector);
     }
-    if (inp == 3) {
-        cout << "Sorry this is not available now.";
-        reterun 0;
     if (inp > 4)
     {
         cout << "Are you stupid? Only 4 options are available";
@@ -196,15 +247,4 @@ int main()
     }
     
 }
-        
-           
-      
-        
-
-
-
-        
-
-
-
-    
+       
